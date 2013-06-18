@@ -1,0 +1,15 @@
+{
+  "name": "<%= _.slugify(appname) %>",
+  "version": "<%= version %>",
+  "main": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test"
+  ],
+  "dependencies": {
+    "tmlib.js": "latest"
+  }
+}
+

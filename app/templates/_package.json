@@ -1,0 +1,31 @@
+{
+  "name": "<%= _.slugify(appname) %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
+  "keywords": [],
+  "homepage": "<%= githubUrl %>/<%= _.slugify(appname) %>",
+  "bugs": "<%= githubUrl %>/<%= _.slugify(appname) %>/issues",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "express": "*",
+    "jade": "*",
+    "socket.io": "*",
+    "lodash": "*"
+  },
+  "devDependencies": {
+    "mocha": "~1.9.0",
+    "grunt": "~0.4.1",
+    "grunt-bower-task": "*"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}
