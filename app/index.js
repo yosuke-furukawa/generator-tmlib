@@ -4,7 +4,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 
 
-var ExpressioGenerator = module.exports = function ExpressioGenerator(args, options, config) {
+var TmlibGenerator = module.exports = function ExpressioGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
@@ -14,9 +14,9 @@ var ExpressioGenerator = module.exports = function ExpressioGenerator(args, opti
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
-util.inherits(ExpressioGenerator, yeoman.generators.Base);
+util.inherits(TmlibGenerator, yeoman.generators.Base);
 
-ExpressioGenerator.prototype.askFor = function askFor() {
+TmlibGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   // welcome message
@@ -39,7 +39,7 @@ ExpressioGenerator.prototype.askFor = function askFor() {
     },
     {
       name: 'description',
-      message: 'You can write description about your app.',
+      message: 'Description about your app :',
       default: '',
       warning: ''
     },
@@ -58,7 +58,7 @@ ExpressioGenerator.prototype.askFor = function askFor() {
   }.bind(this));
 };
 
-ExpressioGenerator.prototype.app = function app() {
+TmlibGenerator.prototype.app = function app() {
   this.mkdir('app');
   this.mkdir('app/templates');
 
@@ -66,7 +66,7 @@ ExpressioGenerator.prototype.app = function app() {
   this.template('_bower.json', 'bower.json');
 };
 
-ExpressioGenerator.prototype.projectfiles = function projectfiles() {
+TmlibGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
 };

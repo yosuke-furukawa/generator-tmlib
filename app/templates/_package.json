@@ -3,22 +3,27 @@
   "version": "<%= version %>",
   "description": "<%= description %>",
   "keywords": [],
-  "homepage": "<%= githubUrl %>/<%= _.slugify(appname) %>",
-  "bugs": "<%= githubUrl %>/<%= _.slugify(appname) %>/issues",
+  "homepage": "<%= githubUrl %>/<%= _.slugify(author) %>/<%= _.slugify(appname) %>",
+  "bugs": "<%= githubUrl %>/<%= _.slugify(author) %>/<%= _.slugify(appname) %>/issues",
   "main": "app/index.js",
   "scripts": {
+    "preinstall": "npm install grunt-cli -g && npm install mocha -g",
+    "start": "grunt",
     "test": "mocha"
   },
   "dependencies": {
     "express": "*",
     "jade": "*",
     "socket.io": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "connect-livereload": "*"
   },
   "devDependencies": {
     "mocha": "~1.9.0",
     "grunt": "~0.4.1",
-    "grunt-bower-task": "*"
+    "grunt-bower-task": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-express-server": "*"
   },
   "engines": {
     "node": ">=0.8.0"
