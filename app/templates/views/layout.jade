@@ -1,7 +1,13 @@
 doctype 5
 html
   head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1")
     title= title
+    link(rel='stylesheet', href='/vendor/bootstrap/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/socket.io/socket.io.js')
+    script(src='/vendor/tmlib.js/tmlib.js')
+    script(src='/javascripts/main.js')
   body
     block content

@@ -1,5 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.content
+    div
+      canvas#world
+    br 
+    div.input-append
+      input.span1#colorPicker(type="color", value="#aafaff")
+      input#inputText.span4(type="text", value="Hello, Node.js")
+      button#sendBtn.btn.btn-primary(type="button") Send
+    div#buttonList
+      button.btn いいね
+      button.btn へぇ〜
+      button.btn なんですと!
+      button.btn ドン
+      button.btn うんこ

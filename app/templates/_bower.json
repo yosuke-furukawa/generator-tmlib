@@ -9,7 +9,8 @@
     "test"
   ],
   "dependencies": {
-    "tmlib.js": "latest"
+    "tmlib.js": "latest",
+    "bootstrap": "latest"
   }
 }
 

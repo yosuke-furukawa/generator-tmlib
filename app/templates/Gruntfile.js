@@ -56,5 +56,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-bower-task');
-  grunt.registerTask('default', ['express:dev', 'watch']);
+  grunt.registerTask('default', ['bower:install', 'express:dev', 'watch']);
 };
