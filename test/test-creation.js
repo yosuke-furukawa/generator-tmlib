@@ -23,11 +23,27 @@ describe('tmlib generator', function () {
     var expected = [
       // add files you expect to exist here.
       '.jshintrc',
-      '.editorconfig'
+      '.editorconfig',
+      '.gitignore',
+      'app.js',
+      'Gruntfile.js',
+      'package.json',
+      'bower.json',
+      'views/index.jade',
+      'views/layout.jade',
+      'public/javascripts/main.js',
+      'lib/socket.io-server.js',
+      'routes/index.js',
+      'routes/user.js',
+      'public/stylesheets/style.css',
     ];
 
     helpers.mockPrompt(this.app, {
-      'someOption': 'Y'
+      'appname': 'abc',
+      'version': '0.0.1',
+      'yourname': 'yosuke-furukawa',
+      'description': 'test',
+      'template_engine': 'jade'
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
