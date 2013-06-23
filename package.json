@@ -1,9 +1,11 @@
 {
   "name": "generator-tmlib",
-  "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "version": "0.0.1",
+  "description": "A Tmlib generator for Yeoman",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "tmlib",
+    "socket.io"
   ],
   "homepage": "https://github.com/yosuke-furukawa/generator-tmlib",
   "bugs": "https://github.com/yosuke-furukawa/generator-tmlib/issues",
