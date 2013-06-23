@@ -7,7 +7,6 @@
   "bugs": "<%= githubUrl %>/<%= _.slugify(appname) %>/issues",
   "main": "app/index.js",
   "scripts": {
-    "preinstall": "npm install bower -g && npm install grunt-cli -g && npm install mocha -g",
     "start": "grunt",
     "test": "mocha test/*"
   },
@@ -18,10 +17,11 @@
   },
   "dependencies": {
     "express": "*",
-    "<%= this.template_engine %>": "*",
+    <% if (template_engine.npm) { %> "<%= template_engine.npm %>": "*",<% } %>
     "socket.io": "*",
     "lodash": "*",
-    "connect-livereload": "*"
+    "connect-livereload": "*",
+    "consolidate": "*"
   },
   "devDependencies": {
     "mocha": "~1.9.0",

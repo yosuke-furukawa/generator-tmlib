@@ -4,6 +4,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 
 var GitHubApi = require('github');
+var template_setting = require('./template_setting');
 var github = new GitHubApi({
   version: '3.0.0'
 });
@@ -23,7 +24,11 @@ var TmlibGenerator = module.exports = function TmlibGenerator(args, options, con
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+    this.spawnCommand('bower', ['cache-clean'])
+      .on('exit', function(err) {
+        if (err) console.err(err);
+        this.installDependencies({ skipInstall: options['skip-install'] });
+      }.bind(this));
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -35,7 +40,7 @@ TmlibGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   // welcome message
-  var welcome = "This is a generator for tmlib. tmlib can make games easily!";
+  var welcome = "This is a generator for tmlib. tmlib can make javascript easy!";
 
   console.log(welcome);
 
@@ -66,14 +71,14 @@ TmlibGenerator.prototype.askFor = function askFor() {
     },
     {
       name: 'template_engine',
-      message: 'What is your favorite template engine? [jade, ejs, jshtml, hjs]',
+      message: 'What is your favorite template engine? [jade, ejs, swig, hogan]',
       default: 'jade',
       warning: ''
     },
     {
-      name: 'css_engine',
-      message: 'What is your favorite meta-css? [NONE, less, stylus, sass]',
-      default: 'NONE',
+      name: 'use_heroku',
+      message: 'Use Heroku? [Y/n]',
+      default: 'n',
       warning: ''
     },
   ];
@@ -83,8 +88,8 @@ TmlibGenerator.prototype.askFor = function askFor() {
     this.version = props.version;
     this.description = props.description;
     this.yourname = props.yourname;
-    this.template_engine = props.template_engine;
-    // this.css_engine = prop.css_engine == 'NONE' ? '' : prop.css_engine;
+    this.template_engine = template_setting(props.template_engine);
+    this.use_heroku = props.use_heroku == "Y" ? true : false;
     cb();
   }.bind(this));
 };
@@ -106,15 +111,17 @@ TmlibGenerator.prototype.app = function app() {
   this.directory('public', 'public');
   this.mkdir('public/vendor');
   this.mkdir('views');
-  var viewPath = 'views/*.'+this.template_engine;
+  var viewPath = 'views/*.'+this.template_engine.extension;
   var viewFiles = this.expandFiles(viewPath, {dot: true, cwd: this.sourceRoot()});
   viewFiles.forEach(function(viewFile) {
-    this.copy(viewFile, viewFile); 
+    this.copy(viewFile, viewFile);
   }.bind(this));
-  this.directory('lib', 'lib');
+  this.mkdir('lib');
+  this.template('lib/socket.io-server.js', 'lib/socket.io-server.js');
   this.directory('routes', 'routes');
   this.template('app.js', 'app.js');
   this.copy('Gruntfile.js', 'Gruntfile.js');
+  if (this.use_heroku) this.copy('Procfile', 'Procfile');
 };
 
 TmlibGenerator.prototype.projectfiles = function projectfiles() {

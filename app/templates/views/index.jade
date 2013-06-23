@@ -1,5 +1,7 @@
 extends layout
 
+
+
 block content
   div.content
     div
@@ -7,11 +9,17 @@ block content
     br 
     div.input-append
       input.span1#colorPicker(type="color", value="#aafaff")
-      input#inputText.span4(type="text", value="Hello, Node.js")
+      input#inputText.span4(type="text", value="Hello, Node学園!")
       button#sendBtn.btn.btn-primary(type="button") Send
+    
+    - var yosuke = "https://si0.twimg.com/profile_images/206948941/wall-e_bigger.jpg";
+    - var phi = "https://si0.twimg.com/profile_images/484079620/kenkyo_bigger.jpg";
+    
     div#buttonList
       button.btn いいね
       button.btn へぇ〜
       button.btn なんですと!
       button.btn ドン
       button.btn うんこ
+      button.btn(data-value="#{yosuke}") 天才
+      button.btn(data-value="#{phi}") 謙虚

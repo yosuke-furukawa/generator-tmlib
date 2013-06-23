@@ -11,6 +11,10 @@
         <script src="/javascripts/main.js"></script>
     </head>
     <body>
+        <%
+        var yosuke = "https://si0.twimg.com/profile_images/206948941/wall-e_bigger.jpg";
+        var phi = "https://si0.twimg.com/profile_images/484079620/kenkyo_bigger.jpg";
+        %>
         <div class="content">
             <div>
                 <canvas id="world"></canvas>
@@ -27,6 +31,8 @@
                 <button class="btn">なんですと！</button>
                 <button class="btn">ドン</button>
                 <button class="btn">うんこ</button>
+                <button class="btn" data-value="<%= yosuke %>">天才</button>
+                <button class="btn" data-value="<%= phi %>">謙虚</button>
             </div>
         </div>
     </body>

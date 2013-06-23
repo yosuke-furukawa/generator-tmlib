@@ -27,6 +27,8 @@
                 <button class="btn">なんですと！</button>
                 <button class="btn">ドン</button>
                 <button class="btn">うんこ</button>
+                <button class="btn" data-value="https://si0.twimg.com/profile_images/206948941/wall-e_bigger.jpg">天才</button>
+                <button class="btn" data-value="https://si0.twimg.com/profile_images/484079620/kenkyo_bigger.jpg">謙虚</button>
             </div>
         </div>
     </body>

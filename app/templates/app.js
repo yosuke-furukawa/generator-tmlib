@@ -8,14 +8,18 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var cons = require('consolidate');
 var io_server = require('./lib/socket.io-server.js');
 
 var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
+<% if (template_engine.consolidate) { %>
+app.engine('<%= template_engine.extension %>', cons.<%= template_engine.consolidate %>);
+<% } %>
+app.set('view engine', '<%= template_engine.extension %>');
 app.set('views', __dirname + '/views');
-app.set('view engine', '<%= template_engine %>');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(require('connect-livereload')());
