@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Express</title>
+        <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.css'>
+        <link rel='stylesheet' href='/stylesheets/style.css'>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="http://rawgithub.com/phi1618/tmlib.js/0.1.7/build/tmlib.js"></script>
+        <script src="/javascripts/main.js"></script>
+    </head>
+    <body>
+        <div class="content">
+            <div>
+                <canvas id="world"></canvas>
+            </div>
+            <br />
+            <div class="input-append">
+                <input id="colorPicker" class="span1" type="color" value="" />
+                <input id="inputText" class="span4" type="text" value="Hello, node.js" />
+                <button id="sendBtn" class="btn btn-primary" type="button">Send</button>
+            </div>
+            <div id="buttonList">
+                <button class="btn">いいね</button>
+                <button class="btn">へぇ〜</button>
+                <button class="btn">なんですと！</button>
+                <button class="btn">ドン</button>
+                <button class="btn">うんこ</button>
+                <button class="btn" data-value="https://si0.twimg.com/profile_images/206948941/wall-e_bigger.jpg">天才</button>
+                <button class="btn" data-value="https://si0.twimg.com/profile_images/484079620/kenkyo_bigger.jpg">謙虚</button>
+            </div>
+        </div>
+    </body>
+</html>
