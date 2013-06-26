@@ -26,8 +26,17 @@ var TmlibGenerator = module.exports = function TmlibGenerator(args, options, con
   this.on('end', function () {
     this.spawnCommand('bower', ['cache-clean'])
       .on('exit', function(err) {
-        if (err) console.err(err);
-        this.installDependencies({ skipInstall: options['skip-install'] });
+        if (err) console.log(err);
+        var skip_install = options['skip-install'];
+        var grunt_bower_task = function() {
+          if (!skip_install) {
+            this.spawnCommand('grunt', ['bower:install'])
+            .on('exit', function (err) {
+              if (err) console.log(err);
+            });
+          }
+        }.bind(this);
+        this.installDependencies({ skipInstall: skip_install, callback: grunt_bower_task});
       }.bind(this));
   });
 
