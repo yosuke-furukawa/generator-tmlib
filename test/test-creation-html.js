@@ -24,12 +24,13 @@ describe('tmlib generator', function () {
       // add files you expect to exist here.
       '.jshintrc',
       '.editorconfig',
+      '.bowerrc',
       '.gitignore',
       'app.js',
       'Gruntfile.js',
       'package.json',
       'bower.json',
-      'views/index.html',
+      'views/index.ejs',
       'public/javascripts/main.js',
       'lib/socket.io-server.js',
       'routes/index.js',
@@ -42,7 +43,7 @@ describe('tmlib generator', function () {
       'version': '0.0.1',
       'yourname': 'yosuke-furukawa',
       'description': 'test',
-      'template_engine': 'html'
+      'template_engine': 'ejs'
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {

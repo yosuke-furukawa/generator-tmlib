@@ -24,6 +24,7 @@ describe('tmlib generator', function () {
       // add files you expect to exist here.
       '.jshintrc',
       '.editorconfig',
+      '.bowerrc',
       '.gitignore',
       'app.js',
       'Gruntfile.js',

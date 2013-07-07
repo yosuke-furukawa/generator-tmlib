@@ -117,6 +117,7 @@ TmlibGenerator.prototype.userInfo = function userInfo() {
 TmlibGenerator.prototype.app = function app() {
   this.template('_package.json', 'package.json');
   this.template('_bower.json', 'bower.json');
+  this.copy('_bowerrc', '.bowerrc');
   this.directory('public', 'public');
   this.mkdir('public/vendor');
   this.mkdir('views');
